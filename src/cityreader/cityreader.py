@@ -14,21 +14,44 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-cities = []
+# cities = []
 
-def cityreader(cities=[]):
+# def cityreader(cities=[]):
+import csv
+from csv import writer
+
+rows = []
+
+def cityreader(file_name, list_of_elem):
+  with open(file_name, 'a+', newline='' ) as write_obj:
+    csv_writer = writer(write_obj)  
+    csv_writer.writerow(list_of_elem)
+
+row_contents = ['all', 'where', 'here', 14, 14, 7, 9, 'eastern', 00000]
+cityreader('src/cityreader/cities.csv', row_contents)
+
+
+with open('src/cityreader/cities.csv', 'r' ) as file:
+  file = csv.reader(file)
+ 
+  for row in file:
+    rows.append(row)
+    print(f'this are the rows: {rows}')
+
   # TODO Implement the functionality to read from the 'cities.csv' file
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     
-    return cities
+#     return cities
 
-cityreader(cities)
+# cityreader('src/cityreader/cities.csv', row_contents)
+
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -69,3 +92,5 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
 
   return within
+
+# python3 src/cityreader/cityreader.py

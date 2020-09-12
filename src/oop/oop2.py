@@ -6,7 +6,24 @@
 class GroundVehicle():
     def __init__(self, num_wheels):
         self.num_wheels = num_wheels
+    def drive(self):
+        print(f"vroooom on {self.num_wheels} wheels")
 
+  
+
+v = GroundVehicle(6)
+v.drive()
+print(v)
+
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels=2):
+        super().__init__(num_wheels)
+    def drive(self):
+        print(f"BRAAP on {self.num_wheels} wheels")
+
+m = Motorcycle(2)
+m.drive()
+print(m)
     # TODO
 
 
@@ -19,14 +36,17 @@ class GroundVehicle():
 
 # TODO
 
-vehicles = [
-    GroundVehicle(),
-    GroundVehicle(),
-    Motorcycle(),
-    GroundVehicle(),
-    Motorcycle(),
-]
+# vehicles = [
+#     GroundVehicle(),
+#     GroundVehicle(),
+#     Motorcycle(),
+#     GroundVehicle(),
+#     Motorcycle(),
+# ]
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # TODO
+
+
+# python3 src/oop/oop2.py
